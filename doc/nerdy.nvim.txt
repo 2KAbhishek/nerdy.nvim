@@ -1,0 +1,47 @@
+TABLE OF CONTENTS                                              *nerdy.nvim.toc*
+1.  Introduction               (|nerdy.nvim|)
+2.  Quickstart                 (|nerdy-quickstart|)
+3.  Commands                   (|nerdy-commands|)
+4.  Mappings                   (|nerdy-mappings|)
+
+================================================================================
+INTRODUCTION                                                       *nerdy.nvim*
+
+This plugin  generates a list of unique nerd font glyphs and selecting
+one will add it to the current cursor position.
+
+================================================================================
+QUICKSTART                                                   *nerdy-quickstart*
+
+Add the following to you lazy/packer config
+
+>
+    -- Lazy
+    {
+        '2kabhishek/nerdy.nvim',
+        dependencies = { 'stevearc/dressing.nvim' },
+        cmd = 'Nerdy',
+    },
+
+    -- Packer
+    use '2kabhishek/nerdy.nvim'
+<
+
+================================================================================
+COMMANDS                                                       *nerdy-commands*
+
+The command GitCoAuthors shows the list of unique commit authors in a list.
+
+    Example usage:
+>
+    :Nerdy
+<
+
+================================================================================
+MAPPINGS                                                       *nerdy-mappings*
+
+Recommended keybinding for showing the icon list is `<leader>f,`
+By default there are no keybindings set.
+
+================================================================================
+
