@@ -23,7 +23,7 @@ Add the following to you lazy/packer config
             'stevearc/dressing.nvim',
             'nvim-telescope/telescope.nvim',
         },
-        cmd = 'Nerdu',
+        cmd = 'Nerdy',
     },
 
     -- Packer
@@ -33,7 +33,7 @@ Add the following to you lazy/packer config
 ================================================================================
 COMMANDS                                                       *nerdy-commands*
 
-The command GitCoAuthors shows the list of unique commit authors in a list.
+The command Nerdy shows the nerd glyphs with names in a list.
 
     Example usage:
 >

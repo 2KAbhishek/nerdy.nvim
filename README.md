@@ -64,7 +64,7 @@ These two plugins are optional but highly recommended for a smoother user experi
         'stevearc/dressing.nvim',
         'nvim-telescope/telescope.nvim',
     },
-    cmd = 'Nerdu',
+    cmd = 'Nerdy',
 },
 
 -- Packer
