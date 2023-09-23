@@ -57,12 +57,15 @@ Introducing nerdy.nvim, a super handy plugin that lets you easily search, previe
 -- Lazy
 {
     '2kabhishek/nerdy.nvim',
-    dependencies = { 'stevearc/dressing.nvim' },
+    dependencies = {
+        'stevearc/dressing.nvim',
+        'nvim-telescope/telescope.nvim',
+    },
     cmd = 'Nerdu',
 },
 
 -- Packer
-use '2kabhishek/co-author.nvim'
+use '2kabhishek/nerdy.nvim'
 
 ```
 

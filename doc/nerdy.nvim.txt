@@ -19,8 +19,11 @@ Add the following to you lazy/packer config
     -- Lazy
     {
         '2kabhishek/nerdy.nvim',
-        dependencies = { 'stevearc/dressing.nvim' },
-        cmd = 'Nerdy',
+        dependencies = {
+            'stevearc/dressing.nvim',
+            'nvim-telescope/telescope.nvim',
+        },
+        cmd = 'Nerdu',
     },
 
     -- Packer
