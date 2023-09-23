@@ -48,6 +48,9 @@ Introducing nerdy.nvim, a super handy plugin that lets you easily search, previe
 ### ⚡ Requirements
 
 - You have installed the latest version of `neovim`
+
+These two plugins are optional but highly recommended for a smoother user experience.
+
 - [dressing.nvim](https://github.com/stevearc/dressing.nvim) — for prettier select UI
 - [telescope](https://github.com/nvim-telescope/telescope.nvim) — for fuzzy searching in list
 
