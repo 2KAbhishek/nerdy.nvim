@@ -20,7 +20,7 @@
 <a href="https://github.com/2KAbhishek/nerdy.nvim/pulse">
 <img alt="Last Updated" src="https://img.shields.io/github/last-commit/2kabhishek/nerdy.nvim?style=flat&color=e06c75&label="> </a>
 
-<h3>Short Sweet Headline 🎇🎉</h3>
+<h3>Find Nerd Glyphs Easily 🤓🔭</h3>
 
 <figure>
   <img src="images/screenshot.png" alt="nerdy.nvim in action">
@@ -30,58 +30,65 @@
 
 </div>
 
-nerdy.nvim is a `<utility/tool>` that allows `<target_audience>` to `<action>`.
+Do you like [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) too? but don't like going over to [their site](https://www.nerdfonts.com/cheat-sheet) just to fetch a glyph for your pretty terminal?
+
+Well, me too!
+
+Introducing nerdy.nvim, a super handy plugin that lets you easily search, preview and insert all nerd font glyphs straight from neovim!
 
 ## ✨ Features
 
-- Supports foo
-- Can do bar
-- Works with bazz
+- Fuzzy search nerd glyphs
+- Preview glyphs before inserting
+- Super lightweight
+- Can auto generate new icons from source
 
 ## Setup
 
 ### ⚡ Requirements
 
-- foo >= bar
-- bazz
+- You have installed the latest version of `neovim`
+- [dressing.nvim](https://github.com/stevearc/dressing.nvim) — for prettier select UI
+- [telescope](https://github.com/nvim-telescope/telescope.nvim) — for fuzzy searching in list
 
 ### 🚀 Installation
 
-```bash
-git clone https://github.com/2kabhishek/nerdy.nvim
-cd nerdy.nvim
-<install_command>
+```lua
+-- Lazy
+{
+    '2kabhishek/nerdy.nvim',
+    dependencies = { 'stevearc/dressing.nvim' },
+    cmd = 'Nerdu',
+},
+
+-- Packer
+use '2kabhishek/co-author.nvim'
+
 ```
 
 ### 💻 Usage
 
-```bash
-USAGE:
-    nerdy.nvim [FLAGS] [OPTIONS]
-Example:
-    nerdy.nvim
-```
+`nerdy.nvim` adds a new command `Nerdy`.
 
-## What's Next
+You can add your custom bindings for the command, the recommended keybinding is `<leader>f,`.
 
-Planning to add `<feature/module>`.
+check `:help nerdy` for more details.
 
-### ✅ To-Do
+> NOTE: By default there are no configured keybindings.
 
-- [x] Setup repo
-- [ ] Think real hard
-- [ ] Start typing
+#### Fetch new icons
+
+Running the `python scripts/generator.py` command will automatically fetch new icons from [source](https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/glyphnames.json) and update the icons.
 
 ##  Behind The Code
 
 ### 🌈 Inspiration
 
-nerdy.nvim was inspired by `<reason/idea>`.
+I love nerd font glyphs, and I use them anywhere I can! but I was wasting a lot of time going back and forth between nerd font site and neovim, also the copy feature was super buggy for me on the site, so I made nerdy!
 
 ### 💡 Challenges/Learnings
 
-- The main challenges were `<issue/difficulty>`
-- I learned about `<learning/accomplishment>`
+- Making the generated icon table with vim.ui.select was a bit tricky.
 
 ### 🧰 Tooling
 
@@ -90,7 +97,8 @@ nerdy.nvim was inspired by `<reason/idea>`.
 
 ### 🔍 More Info
 
-- [similar](https://github.com/2kabhishek/similar) — a related repo
+- [nerdicons.nvim](https://github.com/nvimdev/nerdicons.nvim) — Nerdy was inspired by nerdicons, thanks to the original authors for the groundwork.
+- [co-author.nvim](https://github.com/2kabhishek/co-author.nvim) — Another one of my plugin that easily lets you add co authors
 
 <hr>
 
