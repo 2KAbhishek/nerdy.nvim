@@ -30,7 +30,7 @@
 
 </div>
 
-Do you like [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) too? but don't like going over to [their site](https://www.nerdfonts.com/cheat-sheet) just to fetch a glyph for your pretty terminal?
+Do you like [Nerd fonts](https://github.com/ryanoasis/nerd-fonts)? but don't like going over to [their site](https://www.nerdfonts.com/cheat-sheet) just to fetch a glyph for your pretty terminal?
 
 Well, me too!
 
