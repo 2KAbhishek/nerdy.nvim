@@ -23,7 +23,7 @@
 <h3>Find Nerd Glyphs Easily 🤓🔭</h3>
 
 <figure>
-  <img src="images/screenshot.png" alt="nerdy.nvim in action">
+  <img src="images/screenshot.jpg" alt="nerdy.nvim in action">
   <br/>
   <figcaption>nerdy.nvim in action</figcaption>
 </figure>
