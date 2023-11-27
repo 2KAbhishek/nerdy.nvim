@@ -417,6 +417,7 @@ local function get_icons()
     ["custom-puppet"] = "",
     ["custom-purescript"] = "",
     ["custom-scheme"] = "",
+    ["custom-toml"] = "",
     ["custom-v_lang"] = "",
     ["custom-vim"] = "",
     ["custom-windows"] = "",
