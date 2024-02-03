@@ -1,8 +1,9 @@
-if vim.g.loaded_nerdicons then
-  return
+if vim.g.loaded_nerdy then
+    return
 end
 
-vim.g.loaded_nerdicons = true
+vim.g.loaded_nerdy = true
 
-vim.cmd('command! Nerdy lua require("nerdy").list()')
-
+vim.api.nvim_create_user_command('Nerdy', function()
+    require("nerdy").list()
+end, {})
