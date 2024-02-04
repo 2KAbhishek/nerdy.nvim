@@ -4,6 +4,4 @@ end
 
 vim.g.loaded_nerdy = true
 
-vim.api.nvim_create_user_command('Nerdy', function()
-    require("nerdy").list()
-end, {})
+vim.api.nvim_create_user_command('Nerdy', 'lua require("nerdy").list()', {})

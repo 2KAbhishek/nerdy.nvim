@@ -13,10 +13,7 @@ nerdy.list = function()
 
     if #icon_list > 0 then
         vim.ui.select(icon_list, { prompt = 'Select an icon:' }, function(item, _)
-            if not item then
-                return
-            end
-            if item then
+            if item ~= nil then
                 local icon = vim.split(item, ' : ')[2]
                 local cursor_position = vim.api.nvim_win_get_cursor(0)
                 local row = cursor_position[1]
