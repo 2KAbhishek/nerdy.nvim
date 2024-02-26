@@ -26,6 +26,7 @@ return function(opts)
             attach_mappings = function(prompt_bufnr, map)
                 actions.select_default:replace(function()
                     local icon = vim.split(action_state.get_selected_entry().value, ' : ')[2]
+                    actions.close(prompt_bufnr)
                     local cursor_position = vim.api.nvim_win_get_cursor(0)
                     local row = cursor_position[1]
                     local column = cursor_position[2]
