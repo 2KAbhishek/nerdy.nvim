@@ -89,7 +89,13 @@ Nerdy also comes with a Telescope extension, to use it add the following to your
 require('telescope').load_extension('nerdy')
 ```
 
-And then call: `Telescope nerdy`
+And then call
+
+```viml
+:Telescope nerdy
+" or
+:lua require('telescope').extensions.nerdy.nerdy()
+```
 
 #### 🔄 Fetch New Icons
 
