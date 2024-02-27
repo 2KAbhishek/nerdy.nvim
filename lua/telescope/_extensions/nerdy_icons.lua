@@ -1,29 +1,23 @@
-local pickers = require("telescope.pickers")
-local finders = require("telescope.finders")
-local conf = require("telescope.config").values
-local actions = require("telescope.actions")
-local action_state = require("telescope.actions.state")
+local pickers = require('telescope.pickers')
+local finders = require('telescope.finders')
+local conf = require('telescope.config').values
+local actions = require('telescope.actions')
+local action_state = require('telescope.actions.state')
 local nerdy = require('nerdy')
 
 return function(opts)
-    opts = opts or require("telescope.themes").get_dropdown({})
+    opts = opts or require('telescope.themes').get_dropdown({})
     pickers
         .new(opts, {
-            prompt_title = "Nerdy Icons",
+            prompt_title = 'Nerdy Icons',
             finder = finders.new_table({
                 results = nerdy.generate(),
-
                 entry_maker = function(entry)
-                    return {
-                        value = entry,
-                        display = entry,
-                        ordinal = entry,
-                    }
+                    return { value = entry, display = entry, ordinal = entry }
                 end,
             }),
             sorter = conf.generic_sorter(opts),
-            ---@diagnostic disable-next-line: unused-local
-            attach_mappings = function(prompt_bufnr, map)
+            attach_mappings = function(prompt_bufnr, _)
                 actions.select_default:replace(function()
                     local icon = vim.split(action_state.get_selected_entry().value, ' : ')[2]
                     actions.close(prompt_bufnr)
