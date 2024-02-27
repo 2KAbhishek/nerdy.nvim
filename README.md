@@ -30,11 +30,10 @@
 
 </div>
 
-Do you like [Nerd fonts](https://github.com/ryanoasis/nerd-fonts)? but don't like going over to [their site](https://www.nerdfonts.com/cheat-sheet) just to fetch a glyph for your pretty terminal?
-
+Do you like [Nerd fonts](https://github.com/ryanoasis/nerd-fonts)? but don't like going over to [their site](https://www.nerdfonts.com/cheat-sheet) to fetch a glyph for your pretty terminal?
 Well, me too!
 
-Introducing nerdy.nvim, a super handy plugin that lets you easily search, preview and insert all nerd font glyphs straight from neovim!
+Introducing nerdy.nvim, a super handy plugin that lets you search, preview and insert all nerd font glyphs straight from neovim!
 
 ## ✨ Features
 
@@ -82,11 +81,21 @@ check `:help nerdy` for more details.
 
 > NOTE: By default there are no configured keybindings.
 
-#### Fetch new icons
+#### 🔭 Telescope Extension
+
+Nerdy also comes with a Telescope extension, to use it add the following to your telescope configs.
+
+```lua
+require('telescope').load_extension('nerdy')
+```
+
+And then call: `Telescope nerdy`
+
+#### 🔄 Fetch New Icons
 
 Running the `python scripts/generator.py` command will automatically fetch new icons from [source](https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/glyphnames.json) and update the icons.
 
-##  Behind The Code
+## Behind The Code
 
 ### 🌈 Inspiration
 
@@ -103,8 +112,8 @@ I love nerd font glyphs, and I use them anywhere I can! but I was wasting a lot 
 
 ### 🔍 More Info
 
-- [nerdicons.nvim](https://github.com/nvimdev/nerdicons.nvim) — Nerdy was inspired by nerdicons, thanks to the original authors for the groundwork.
-- [co-author.nvim](https://github.com/2kabhishek/co-author.nvim) — Another one of my plugin that easily lets you add co authors
+- [nerdicons.nvim](https://github.com/nvimdev/nerdicons.nvim) — thanks to the original authors for the groundwork.
+- [co-author.nvim](https://github.com/2kabhishek/co-author.nvim) — Another one of my plugin that lets you add co authors.
 
 <hr>
 
@@ -120,4 +129,3 @@ I love nerd font glyphs, and I use them anywhere I can! but I was wasting a lot 
 | <a href="https://2kabhishek.github.io/projects" target="_blank">Other Projects </a>
 
 </div>
-
