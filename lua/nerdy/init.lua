@@ -2,7 +2,7 @@ local nerdy = {}
 
 nerdy.generate = function()
     local icon_list = {}
-    for k, v in pairs(require('nerdy.icons').get_icons()) do
+    for k, v in pairs(require('nerdy.icons')) do
         table.insert(icon_list, k .. ' : ' .. v)
     end
     return icon_list
@@ -12,7 +12,7 @@ nerdy.list = function()
     local icon_list = nerdy.generate()
 
     if #icon_list > 0 then
-        vim.ui.select(icon_list, { prompt = 'Select an icon:' }, function(item, _)
+        vim.ui.select(icon_list, { prompt = 'Nerdy Icons' }, function(item, _)
             if item ~= nil then
                 local icon = vim.split(item, ' : ')[2]
                 local cursor_position = vim.api.nvim_win_get_cursor(0)
