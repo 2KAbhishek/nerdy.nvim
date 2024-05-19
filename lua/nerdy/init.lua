@@ -15,9 +15,7 @@ nerdy.list = function()
         vim.ui.select(icon_list, { prompt = 'Nerdy Icons' }, function(item, _)
             if item ~= nil then
                 local icon = vim.split(item, ' : ')[2]
-                local cursor_position = vim.api.nvim_win_get_cursor(0)
-                local row = cursor_position[1]
-                local column = cursor_position[2]
+                local row, column = unpack(vim.api.nvim_win_get_cursor(0))
                 -- insert icon after cursor
                 vim.api.nvim_buf_set_text(0, row - 1, column, row - 1, column, { icon })
                 -- move cursor to the end of the inserted icon
