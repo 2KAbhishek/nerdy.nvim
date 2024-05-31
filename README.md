@@ -37,7 +37,7 @@ Introducing nerdy.nvim, a super handy plugin that lets you search, preview and i
 
 ## ✨ Features
 
-- Fuzzy search nerd glyphs
+- Fuzzy search nerd glyphs, by name and unicode
 - Preview glyphs before inserting
 - Super lightweight
 - Can auto generate new icons from source
