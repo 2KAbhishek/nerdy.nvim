@@ -1,28 +1,19 @@
 local nerdy = {}
 
-nerdy.generate = function()
-    local icon_list = {}
-    for k, v in pairs(require('nerdy.icons')) do
-        table.insert(icon_list, k .. ' : ' .. v)
-    end
-    return icon_list
-end
-
 nerdy.list = function()
-    local icon_list = nerdy.generate()
+    local icon_list = require('nerdy.icons')
 
-    if #icon_list > 0 then
-        vim.ui.select(icon_list, { prompt = 'Nerdy Icons' }, function(item, _)
-            if item ~= nil then
-                local icon = vim.split(item, ' : ')[2]
-                local row, column = unpack(vim.api.nvim_win_get_cursor(0))
-                -- insert icon after cursor
-                vim.api.nvim_buf_set_text(0, row - 1, column, row - 1, column, { icon })
-                -- move cursor to the end of the inserted icon
-                vim.api.nvim_win_set_cursor(0, { row, column + #icon })
-            end
-        end)
-    end
+    vim.ui.select(icon_list, {
+        prompt = 'Nerdy Icons',
+        format_item = function(item)
+            local item_str = string.format('%s (%s) : %s', item.name, item.code, item.char)
+            return item_str
+        end,
+    }, function(item, _)
+        if item ~= nil then
+            vim.api.nvim_put({ item.char }, 'c', true, true)
+        end
+    end)
 end
 
 return nerdy
