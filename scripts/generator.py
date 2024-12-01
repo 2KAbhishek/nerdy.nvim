@@ -14,7 +14,7 @@ for i in data:
     if i != "METADATA":
         code = str(data[i]["code"])
         char = str(data[i]["char"])
-        target.write(f'{indent}["{i} ({code})"] = "{char}",\n')
+        target.write(f'{indent}{{ name = "{i}", code = "{code}", char = "{char}" }},\n')
 
 target.write("}")
 target.close()
