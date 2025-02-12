@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:
+      - main
+name: Generate Docs
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: panvimdoc
+        uses: kdheepak/panvimdoc@main
+        with:
+          vimdoc: nerdy
+          version: 'Neovim >= 0.8.0'
+          demojify: true
+          treesitter: true
+      - name: Commit files
+        run: |
+          git config --local user.email "2kabhishek@users.noreply.github.com"
+          git config --local user.name "Abhishek via github-actions"
+          git add .
+          git diff --quiet && git commit -m "docs: update help docs"
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
