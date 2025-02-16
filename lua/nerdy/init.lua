@@ -2,6 +2,7 @@ local nerdy = {}
 
 nerdy.list = function()
     local icon_list = require('nerdy.icons')
+    local initial_mode = vim.api.nvim_get_mode().mode
 
     vim.ui.select(icon_list, {
         prompt = 'Nerdy Icons',
@@ -11,7 +12,13 @@ nerdy.list = function()
         end,
     }, function(item, _)
         if item ~= nil then
-            vim.api.nvim_put({ item.char }, 'c', true, true)
+            local is_insert_mode = (initial_mode == 'i')
+
+            vim.api.nvim_put({ item.char }, 'c', not is_insert_mode, true)
+
+            if is_insert_mode then
+              vim.cmd('startinsert')
+            end
         end
     end)
 end
