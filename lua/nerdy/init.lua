@@ -17,7 +17,7 @@ nerdy.list = function()
             vim.api.nvim_put({ item.char }, 'c', not is_insert_mode, true)
 
             if is_insert_mode then
-              vim.cmd('startinsert')
+                vim.cmd('startinsert')
             end
         end
     end)
