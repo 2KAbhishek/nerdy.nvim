@@ -13,14 +13,11 @@ nerdy.list = function()
         end,
     }, function(item, _)
         if item ~= nil then
-            local is_insert_mode = (initial_mode == 'i')
-
-            if is_insert_mode then
+            if initial_mode == 'i' then
                 vim.cmd('startinsert')
             end
             vim.api.nvim_win_set_cursor(0, cursor_position)
-
-            vim.api.nvim_put({ item.char }, 'c', not is_insert_mode, true)
+            vim.api.nvim_put({ item.char }, 'c', false, true)
         end
     end)
 end
