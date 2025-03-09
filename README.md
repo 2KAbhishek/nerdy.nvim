@@ -50,7 +50,7 @@ Introducing nerdy.nvim, a super handy plugin that lets you search, preview and i
 
 These two plugins are optional but highly recommended for a smoother user experience.
 
-- [dressing.nvim](https://github.com/stevearc/dressing.nvim) — for prettier select UI
+- [snacks.nvim picker](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md) — for prettier select UI
 - [telescope](https://github.com/nvim-telescope/telescope.nvim) — for fuzzy searching in list
 
 ### 🚀 Installation
@@ -60,8 +60,7 @@ These two plugins are optional but highly recommended for a smoother user experi
 {
     '2kabhishek/nerdy.nvim',
     dependencies = {
-        'stevearc/dressing.nvim',
-        'nvim-telescope/telescope.nvim',
+        'folke/snacks.nvim',
     },
     cmd = 'Nerdy',
 },
