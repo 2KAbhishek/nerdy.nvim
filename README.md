@@ -23,7 +23,7 @@
 <h3>Find Nerd Glyphs Easily 🤓🔭</h3>
 
 <figure>
-  <img src="images/screenshot.jpg" alt="nerdy.nvim in action">
+  <img src="doc/images/screenshot.jpg" alt="nerdy.nvim in action">
   <br/>
   <figcaption>nerdy.nvim in action</figcaption>
 </figure>
@@ -47,11 +47,7 @@ Introducing nerdy.nvim, a super handy plugin that lets you search, preview and i
 ### ⚡ Requirements
 
 - You have installed the latest version of `neovim`
-
-These two plugins are optional but highly recommended for a smoother user experience.
-
 - [snacks.nvim picker](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md) — for prettier select UI
-- [telescope](https://github.com/nvim-telescope/telescope.nvim) — for fuzzy searching in list
 
 ### 🚀 Installation
 
