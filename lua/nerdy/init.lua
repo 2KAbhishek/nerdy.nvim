@@ -22,4 +22,15 @@ nerdy.list = function()
     end)
 end
 
+nerdy.get = function (name)
+    local icon_list = require('nerdy.icons')
+    for _, item in ipairs(icon_list) do
+        if item.name == name then
+            return item.char
+        end
+    end
+    vim.notify('Icon not found: ' .. name, vim.log.levels.WARN)
+    return ''
+end
+
 return nerdy
