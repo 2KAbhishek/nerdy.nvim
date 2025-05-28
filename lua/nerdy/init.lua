@@ -23,6 +23,9 @@ nerdy.list = function()
 end
 
 nerdy.get = function (name)
+    if name == nil then
+        return ''
+    end
     local icon_list = require('nerdy.icons')
     for _, item in ipairs(icon_list) do
         if item.name == name then

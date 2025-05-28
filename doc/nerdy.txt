@@ -21,6 +21,7 @@ FEATURES                                                      *nerdy-features*
 - Preview glyphs before inserting
 - Super lightweight
 - Can auto generate new icons from source
+- Get nerd glyph by name
 
 
 SETUP                                                            *nerdy-setup*
