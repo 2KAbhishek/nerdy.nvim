@@ -22,7 +22,7 @@ nerdy.list = function()
     end)
 end
 
-nerdy.get = function (name)
+nerdy.get = function(name)
     if name == nil then
         return ''
     end
