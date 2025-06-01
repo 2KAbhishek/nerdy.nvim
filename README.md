@@ -41,6 +41,7 @@ Introducing nerdy.nvim, a super handy plugin that lets you search, preview and i
 - Preview glyphs before inserting
 - Super lightweight
 - Can auto generate new icons from source
+- Get nerd glyph by name programmatically
 
 ## Setup
 
@@ -95,6 +96,45 @@ And then call
 #### 🔄 Fetch New Icons
 
 Running the `python scripts/generator.py` command will automatically fetch new icons from [source](https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/glyphnames.json) and update the icons.
+
+#### 📝 Get Icons by Name Programmatically
+
+You can also get nerd font icons programmatically using the `nerdy.get()` function:
+
+```lua
+local nerdy = require('nerdy')
+
+-- Get a specific icon by name
+local lua = nerdy.get('seti-lua')              -- Returns ''
+local neovim = nerdy.get('dev-neovim')         -- Returns ''
+
+-- Handle cases where icon doesn't exist
+local unknown_icon = nerdy.get('non-existent') -- Returns '' and shows warning
+
+-- Use in your own functions
+local function get_language_icon(language)
+    local icon_name = 'md-language_' .. language
+    return nerdy.get(icon_name)
+end
+```
+
+The function returns an empty string if the icon name is not found or if `nil` is passed as input.
+
+**💡 This is particularly useful when configuring Neovim statuslines, file trees, tab bars, or any plugin that needs consistent nerd font icons without hardcoding Unicode characters.**
+
+```lua
+-- Example: Use in statusline configuration
+local function get_git_icon()
+    return nerdy.get('dev-git') .. ' '
+end
+
+-- Example: Use in nvim-tree or neo-tree configuration
+local file_icons = {
+    lua = nerdy.get('seti-lua'),
+    js = nerdy.get('seti-javascript'),
+    py = nerdy.get('seti-python'),
+}
+```
 
 ## Behind The Code
 
