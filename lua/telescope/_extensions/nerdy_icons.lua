@@ -5,6 +5,8 @@ local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')
 local icon_list = require('nerdy.icons')
 
+local recent_utils = require('nerdy.recent')
+
 return function(opts)
     opts = opts or require('telescope.themes').get_dropdown({})
     pickers
@@ -25,6 +27,7 @@ return function(opts)
                 actions.select_default:replace(function()
                     local selected_entry = action_state.get_selected_entry().value
                     local icon = selected_entry.char
+                    recent_utils.add_to_recent(selected_entry)
                     actions.close(prompt_bufnr)
                     vim.api.nvim_put({ icon }, 'c', true, true)
                 end)
