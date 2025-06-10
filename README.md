@@ -69,9 +69,16 @@ use '2kabhishek/nerdy.nvim'
 
 ### 💻 Usage
 
-`nerdy.nvim` adds a new command `Nerdy`.
+`nerdy.nvim` adds these commands:
 
-You can add your custom bindings for the command, the recommended keybinding is `<leader>f,`.
+- `Nerdy` - Browse all nerd font icons
+- `NerdyRecents` - Browse recently used icons
+
+You can add your custom bindings for the commands:
+```lua
+vim.keymap.set('n', '<leader>fn', ':Nerdy<CR>', { desc = 'Browse nerd icons' })
+vim.keymap.set('n', '<leader>fr', ':NerdyRecents<CR>', { desc = 'Browse recent nerd icons' })
+```
 
 check `:help nerdy` for more details.
 
@@ -89,8 +96,29 @@ And then call
 
 ```viml
 :Telescope nerdy
+:Telescope nerdy_recent
 " or
 :lua require('telescope').extensions.nerdy.nerdy()
+:lua require('telescope').extensions.nerdy.nerdy_recent()
+```
+
+#### 📚 Recent Icons
+
+Nerdy automatically tracks your recently used icons for quick access:
+
+- Recent icons are stored persistently across Neovim sessions
+- Access recent icons with `:NerdyRecents` command or `:Telescope nerdy_recent`
+- Recent icons appear in order of most recent usage
+- Configure maximum number of recent icons to remember
+
+#### ⚙️ Configuration
+
+You can configure nerdy.nvim by calling the setup function:
+
+```lua
+require('nerdy').setup({
+    max_recent = 20,  -- Maximum number of recent icons (default: 30)
+})
 ```
 
 #### 🔄 Fetch New Icons
@@ -118,7 +146,8 @@ local function get_language_icon(language)
 end
 ```
 
-The function returns an empty string if the icon name is not found or if `nil` is passed as input.
+The function returns an empty string if the icon name is not found or if `nil` is passed as input. Recent icons are only tracked when using the UI commands (`:Nerdy`, `:NerdyRecents`) or Telescope extensions.
+
 
 **💡 This is particularly useful when configuring Neovim statuslines, file trees, tab bars, or any plugin that needs consistent nerd font icons without hardcoding Unicode characters.**
 
