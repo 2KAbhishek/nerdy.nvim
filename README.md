@@ -75,6 +75,7 @@ use '2kabhishek/nerdy.nvim'
 - `NerdyRecents` - Browse recently used icons
 
 You can add your custom bindings for the commands:
+
 ```lua
 vim.keymap.set('n', '<leader>fn', ':Nerdy<CR>', { desc = 'Browse nerd icons' })
 vim.keymap.set('n', '<leader>fr', ':NerdyRecents<CR>', { desc = 'Browse recent nerd icons' })
@@ -121,10 +122,6 @@ require('nerdy').setup({
 })
 ```
 
-#### 🔄 Fetch New Icons
-
-Running the `python scripts/generator.py` command will automatically fetch new icons from [source](https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/glyphnames.json) and update the icons.
-
 #### 📝 Get Icons by Name Programmatically
 
 You can also get nerd font icons programmatically using the `nerdy.get()` function:
@@ -148,7 +145,6 @@ end
 
 The function returns an empty string if the icon name is not found or if `nil` is passed as input. Recent icons are only tracked when using the UI commands (`:Nerdy`, `:NerdyRecents`) or Telescope extensions.
 
-
 **💡 This is particularly useful when configuring Neovim statuslines, file trees, tab bars, or any plugin that needs consistent nerd font icons without hardcoding Unicode characters.**
 
 ```lua
@@ -164,6 +160,10 @@ local file_icons = {
     py = nerdy.get('seti-python'),
 }
 ```
+
+#### 🔄 Fetch New Icons
+
+Running the `python scripts/generator.py` command will automatically fetch new icons from [source](https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/glyphnames.json) and update the icons.
 
 ## Behind The Code
 
