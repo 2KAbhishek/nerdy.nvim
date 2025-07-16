@@ -1,11 +1,12 @@
 local M = {}
 
-M.options = {
+M.config = {
     max_recent = 30,
+    use_new_command = false,
 }
 
 M.setup = function(opts)
-    M.options = vim.tbl_deep_extend('force', M.options, opts or {})
+    M.config = vim.tbl_deep_extend('force', M.config, opts or {})
 end
 
 return M
