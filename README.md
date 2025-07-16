@@ -60,30 +60,48 @@ Introducing nerdy.nvim, a super handy plugin that lets you search, preview and i
         'folke/snacks.nvim',
     },
     cmd = 'Nerdy',
+    opts = {
+        use_new_command = true,  -- Enable new command system
+        max_recent = 30,         -- Configure recent icons limit
+    }
 },
-
--- Packer
-use '2kabhishek/nerdy.nvim'
-
 ```
 
 ### 💻 Usage
 
-`nerdy.nvim` adds these commands:
+#### 🚀 Commands
+
+**Available Commands:**
+
+- `:Nerdy` - Browse all nerd font icons (default behavior)
+- `:Nerdy list` - Browse all nerd font icons (explicit)
+- `:Nerdy recent` - Browse recently used icons
+- `:Nerdy get <icon_name>` - Insert specific icon by name
+
+#### Deprecated Commands
+
+> **⚠️ DEPRECATION NOTICE**: The following commands are deprecated and will be removed in a future version. Please migrate to the new `Nerdy` commands above.
+> More information: https://github.com/2kabhishek/octohub.nvim/issues/13
+
+If you haven't updated your config yet, these commands still work but show deprecation warnings:
 
 - `Nerdy` - Browse all nerd font icons
 - `NerdyRecents` - Browse recently used icons
 
-You can add your custom bindings for the commands:
+**Migration:** Add `use_new_command = true` to your config to switch to the new unified interface:
+
+#### 🔗 Keybindings
+
+You can add custom bindings for the commands:
 
 ```lua
-vim.keymap.set('n', '<leader>fn', ':Nerdy<CR>', { desc = 'Browse nerd icons' })
-vim.keymap.set('n', '<leader>fr', ':NerdyRecents<CR>', { desc = 'Browse recent nerd icons' })
+vim.api.nvim_set_keymap('n', '<leader>fn', ':Nerdy<CR>', { noremap = true, silent = true, desc = 'Browse nerd icons' })
+vim.api.nvim_set_keymap('n', '<leader>fr', ':Nerdy recent<CR>', { noremap = true, silent = true, desc = 'Browse recent nerd icons' })
 ```
 
-check `:help nerdy` for more details.
-
 > NOTE: By default there are no configured keybindings.
+
+Use `:help nerdy` for more details.
 
 #### 🔭 Telescope Extension
 
