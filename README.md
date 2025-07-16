@@ -30,18 +30,16 @@
 
 </div>
 
-Do you like [Nerd fonts](https://github.com/ryanoasis/nerd-fonts)? but don't like going over to [their site](https://www.nerdfonts.com/cheat-sheet) to fetch a glyph for your pretty terminal?
-Well, me too!
+Do you like [Nerd fonts](https://github.com/ryanoasis/nerd-fonts)? but don't like going over to [their site](https://www.nerdfonts.com/cheat-sheet) to fetch a glyph for your pretty terminal? Well, me too!
 
-Introducing nerdy.nvim, a super handy plugin that lets you search, preview and insert all nerd font glyphs straight from neovim!
+Introducing nerdy.nvim, a super handy plugin that lets you search, preview and insert all nerd font glyphs straight from Neovim!
 
 ## ✨ Features
 
-- Fuzzy search nerd glyphs, by name and unicode
-- Preview glyphs before inserting
-- Super lightweight
-- Can auto generate new icons from source
-- Get nerd glyph by name programmatically
+- Fuzzy search and insert nerd glyphs, by name and unicode
+- Find and insert icons you use frequently
+- Programmatic access to nerd glyphs by name for use in your configs
+- Auto fetch latest icons list from official sources
 
 ## Setup
 
@@ -113,31 +111,12 @@ require('telescope').load_extension('nerdy')
 
 And then call
 
-```viml
+```vim
 :Telescope nerdy
 :Telescope nerdy_recent
 " or
 :lua require('telescope').extensions.nerdy.nerdy()
 :lua require('telescope').extensions.nerdy.nerdy_recent()
-```
-
-#### 📚 Recent Icons
-
-Nerdy automatically tracks your recently used icons for quick access:
-
-- Recent icons are stored persistently across Neovim sessions
-- Access recent icons with `:NerdyRecents` command or `:Telescope nerdy_recent`
-- Recent icons appear in order of most recent usage
-- Configure maximum number of recent icons to remember
-
-#### ⚙️ Configuration
-
-You can configure nerdy.nvim by calling the setup function:
-
-```lua
-require('nerdy').setup({
-    max_recent = 20,  -- Maximum number of recent icons (default: 30)
-})
 ```
 
 #### 📝 Get Icons by Name Programmatically
@@ -149,7 +128,6 @@ local nerdy = require('nerdy')
 
 -- Get a specific icon by name
 local lua = nerdy.get('seti-lua')              -- Returns ''
-local neovim = nerdy.get('dev-neovim')         -- Returns ''
 
 -- Handle cases where icon doesn't exist
 local unknown_icon = nerdy.get('non-existent') -- Returns '' and shows warning
@@ -161,23 +139,9 @@ local function get_language_icon(language)
 end
 ```
 
-The function returns an empty string if the icon name is not found or if `nil` is passed as input. Recent icons are only tracked when using the UI commands (`:Nerdy`, `:NerdyRecents`) or Telescope extensions.
+Recent icons are not tracked when fetching icons programmatically.
 
-**💡 This is particularly useful when configuring Neovim statuslines, file trees, tab bars, or any plugin that needs consistent nerd font icons without hardcoding Unicode characters.**
-
-```lua
--- Example: Use in statusline configuration
-local function get_git_icon()
-    return nerdy.get('dev-git') .. ' '
-end
-
--- Example: Use in nvim-tree or neo-tree configuration
-local file_icons = {
-    lua = nerdy.get('seti-lua'),
-    js = nerdy.get('seti-javascript'),
-    py = nerdy.get('seti-python'),
-}
-```
+**💡 This is useful when configuring Neovim status lines, file trees, or any plugin that needs consistent nerd font icons without hard coding unicode characters.**
 
 #### 🔄 Fetch New Icons
 
