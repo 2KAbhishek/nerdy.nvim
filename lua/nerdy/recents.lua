@@ -1,5 +1,3 @@
-local config = require('nerdy.config').config
-
 local M = {}
 
 local recent_icons_file = vim.fn.stdpath('data') .. '/nerdy_recent.json'
@@ -28,8 +26,9 @@ M.save_recent_icons = function(recent_icons)
 end
 
 M.add_to_recent = function(icon)
-    local recent_icons = load_recent_icons()
-    local max_recent = config.max_recent
+    local recent_icons = M.load_recent_icons()
+    local config = require('nerdy.config').config
+    local max_recents = config.max_recents
 
     -- Remove if already exists
     for i, recent_icon in ipairs(recent_icons) do
@@ -43,7 +42,7 @@ M.add_to_recent = function(icon)
     table.insert(recent_icons, 1, icon)
 
     -- Trim to max size
-    while #recent_icons > max_recent do
+    while #recent_icons > max_recents do
         table.remove(recent_icons, #recent_icons)
     end
 

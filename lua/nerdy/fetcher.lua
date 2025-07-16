@@ -1,5 +1,5 @@
 local fetcher = {}
-local recent = require('nerdy.recent')
+local recents = require('nerdy.recents')
 
 fetcher.list = function()
     local icon_list = require('nerdy.icons')
@@ -14,7 +14,7 @@ fetcher.list = function()
         end,
     }, function(item, _)
         if item ~= nil then
-            recent.add_to_recent(item)
+            recents.add_to_recent(item)
             if initial_mode == 'i' then
                 vim.cmd('startinsert')
             end
@@ -24,8 +24,8 @@ fetcher.list = function()
     end)
 end
 
-fetcher.list_recent = function()
-    local recent_icons = recent.load_recent_icons()
+fetcher.list_recents = function()
+    local recent_icons = recents.load_recent_icons()
     if #recent_icons == 0 then
         vim.notify('No recent icons found', vim.log.levels.INFO)
         return
@@ -42,7 +42,7 @@ fetcher.list_recent = function()
         end,
     }, function(item, _)
         if item ~= nil then
-            recent.add_to_recent(item)
+            recents.add_to_recent(item)
             if initial_mode == 'i' then
                 vim.cmd('startinsert')
             end

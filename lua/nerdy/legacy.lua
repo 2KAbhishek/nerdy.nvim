@@ -18,7 +18,7 @@ function M.add_legacy_commands()
     end, {})
 
     add_command('NerdyRecents', function()
-        fetcher.list_recent()
+        fetcher.list_recents()
     end, {})
 end
 

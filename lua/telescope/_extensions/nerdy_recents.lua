@@ -4,7 +4,7 @@ local conf = require('telescope.config').values
 local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')
 
-local recent_utils = require('nerdy.recent')
+local recent_utils = require('nerdy.recents')
 
 return function(opts)
     local recent_icons = recent_utils.load_recent_icons()

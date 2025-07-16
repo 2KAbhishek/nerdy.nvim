@@ -5,7 +5,7 @@ local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')
 local icon_list = require('nerdy.icons')
 
-local recent_utils = require('nerdy.recent')
+local recent_utils = require('nerdy.recents')
 
 return function(opts)
     opts = opts or require('telescope.themes').get_dropdown({})

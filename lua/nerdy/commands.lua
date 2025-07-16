@@ -7,7 +7,7 @@ local M = {}
 ---Completion for Nerdy subcommands
 ---@return string[]
 local function complete_nerdy_subcommands()
-    return { 'list', 'recent', 'get' }
+    return { 'list', 'recents', 'get' }
 end
 
 ---Main completion function for Nerdy command
@@ -56,8 +56,8 @@ local function add_nerdy_command()
 
         if subcommand == 'list' then
             fetcher.list()
-        elseif subcommand == 'recent' then
-            fetcher.list_recent()
+        elseif subcommand == 'recents' then
+            fetcher.list_recents()
         elseif subcommand == 'get' then
             if #args == 2 then
                 local icon = fetcher.get(args[2])
@@ -70,7 +70,7 @@ local function add_nerdy_command()
         else
             print('Unknown subcommand: ' .. subcommand)
             print('Usage: Nerdy <subcommand> [options]')
-            print('Available subcommands: list, recent, get')
+            print('Available subcommands: list, recents, get')
         end
     end, { nargs = '*', complete = complete_nerdy })
 end

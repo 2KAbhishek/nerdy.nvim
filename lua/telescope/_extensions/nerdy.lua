@@ -1,8 +1,8 @@
 local telescope = require('telescope')
 
 return telescope.register_extension({
-    exports = { 
+    exports = {
         nerdy = require('telescope._extensions.nerdy_icons'),
-        nerdy_recent = require('telescope._extensions.nerdy_recent')
+        nerdy_recents = require('telescope._extensions.nerdy_recents'),
     },
 })

@@ -74,7 +74,7 @@ Introducing nerdy.nvim, a super handy plugin that lets you search, preview and i
 
 - `:Nerdy` - Browse all nerd font icons (default behavior)
 - `:Nerdy list` - Browse all nerd font icons (explicit)
-- `:Nerdy recent` - Browse recently used icons
+- `:Nerdy recents` - Browse recently used icons
 - `:Nerdy get <icon_name>` - Insert specific icon by name
 
 #### Deprecated Commands
@@ -114,10 +114,10 @@ And then call
 
 ```vim
 :Telescope nerdy
-:Telescope nerdy_recent
+:Telescope nerdy_recents
 " or
 :lua require('telescope').extensions.nerdy.nerdy()
-:lua require('telescope').extensions.nerdy.nerdy_recent()
+:lua require('telescope').extensions.nerdy.nerdy_recents()
 ```
 
 #### 📝 Get Icons by Name Programmatically
