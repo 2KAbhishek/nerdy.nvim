@@ -1,7 +1,7 @@
-local nerdy = {}
+local fetcher = {}
 local recent = require('nerdy.recent')
 
-nerdy.list = function()
+fetcher.list = function()
     local icon_list = require('nerdy.icons')
     local initial_mode = vim.api.nvim_get_mode().mode
     local cursor_position = vim.api.nvim_win_get_cursor(0)
@@ -24,7 +24,7 @@ nerdy.list = function()
     end)
 end
 
-nerdy.list_recent = function()
+fetcher.list_recent = function()
     local recent_icons = recent.load_recent_icons()
     if #recent_icons == 0 then
         vim.notify('No recent icons found', vim.log.levels.INFO)
@@ -52,7 +52,7 @@ nerdy.list_recent = function()
     end)
 end
 
-nerdy.get = function(name)
+fetcher.get = function(name)
     if name == nil then
         return ''
     end
@@ -66,9 +66,4 @@ nerdy.get = function(name)
     return ''
 end
 
-nerdy.setup = function(opts)
-    local config = require('nerdy.config')
-    config.setup(opts)
-end
-
-return nerdy
+return fetcher
