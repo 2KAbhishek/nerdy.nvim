@@ -77,24 +77,10 @@ end
 
 ---Setup Nerdy commands
 function M.setup()
-    if config.use_new_command then
-        add_nerdy_command()
-        if config.add_default_keybindings then
-            vim.api.nvim_set_keymap('n', '<leader>in', ':Nerdy list<CR>', { noremap = true, silent = true })
-            vim.api.nvim_set_keymap('n', '<leader>iN', ':Nerdy recents<CR>', { noremap = true, silent = true })
-        end
-    else
-        vim.notify(
-            'Legacy Nerdy commands are deprecated and will be removed in a future version.\n'
-                .. 'Please switch to the new `:Nerdy` command by adding `use_new_command = true` in your config.\n'
-                .. 'More info: https://github.com/2kabhishek/nerdy.nvim/pull/14',
-            vim.log.levels.WARN
-        )
-        legacy.add_legacy_commands()
-        if config.add_default_keybindings then
-            vim.api.nvim_set_keymap('n', '<leader>in', ':Nerdy<CR>', { noremap = true, silent = true })
-            vim.api.nvim_set_keymap('n', '<leader>iN', ':NerdyRecents<CR>', { noremap = true, silent = true })
-        end
+    add_nerdy_command()
+    if config.add_default_keybindings then
+        vim.api.nvim_set_keymap('n', '<leader>in', ':Nerdy list<CR>', { noremap = true, silent = true })
+        vim.api.nvim_set_keymap('n', '<leader>iN', ':Nerdy recents<CR>', { noremap = true, silent = true })
     end
 end
 
