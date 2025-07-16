@@ -1,6 +1,7 @@
 local M = {}
 
-local recent_icons_file = vim.fn.stdpath('data') .. '/nerdy_recent.json'
+local data_path = vim.fn.stdpath('data')
+local recent_icons_file = data_path .. '/nerdy_recent.json'
 
 M.load_recent_icons = function()
     local file = io.open(recent_icons_file, 'r')
@@ -18,6 +19,9 @@ M.load_recent_icons = function()
 end
 
 M.save_recent_icons = function(recent_icons)
+    if vim.fn.isdirectory(data_path) == 0 then
+        vim.fn.mkdir(data_path, 'p')
+    end
     local file = io.open(recent_icons_file, 'w')
     if file then
         file:write(vim.json.encode(recent_icons))
