@@ -66,4 +66,13 @@ fetcher.get = function(name)
     return ''
 end
 
+fetcher.get_icon_names = function()
+    local icon_list = require('nerdy.icons')
+    local names = {}
+    for _, item in ipairs(icon_list) do
+        table.insert(names, item.name)
+    end
+    return names
+end
+
 return fetcher

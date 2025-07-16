@@ -30,9 +30,9 @@ local function complete_nerdy(arglead, cmdline, cursorpos)
     elseif arg_count > 2 then
         local subcommand = args[2]
         if subcommand == 'get' and arg_count == 3 then
-            -- For 'get' command, we could provide icon name completion
-            -- but that would be expensive, so we'll leave it empty for now
-            return {}
+            return vim.tbl_filter(function(icon)
+                return icon:sub(1, #arglead) == arglead
+            end, fetcher.get_icon_names())
         end
     end
 
