@@ -61,7 +61,6 @@ Introducing nerdy.nvim, a super handy plugin that lets you search, preview and i
     opts = {
         max_recents = 30, -- Configure recent icons limit
         add_default_keybindings = true, -- Add default keybindings
-        use_new_command = true, -- Enable new command system
     }
 },
 ```
@@ -76,18 +75,6 @@ Introducing nerdy.nvim, a super handy plugin that lets you search, preview and i
 - `:Nerdy list` - Browse all nerd font icons (explicit)
 - `:Nerdy recents` - Browse recently used icons
 - `:Nerdy get <icon_name>` - Insert specific icon by name
-
-#### Deprecated Commands
-
-> **⚠️ DEPRECATION NOTICE**: The following commands are deprecated and will be removed in a future version. Please migrate to the new `Nerdy` commands above.
-> More information: https://github.com/2kabhishek/nerdy.nvim/pull/14
-
-If you haven't updated your config yet, these commands still work but show deprecation warnings:
-
-- `Nerdy` -> `Nerdy` or `Nerdy list`
-- `NerdyRecents` -> `Nerdy recents`
-
-**Migration:** Add `use_new_command = true` to your config to switch to the new unified interface:
 
 #### ⌨️ Keybindings
 
