@@ -1,5 +1,4 @@
 local config = require('nerdy.config').config
-local legacy = require('nerdy.legacy')
 local fetcher = require('nerdy.fetcher')
 
 local M = {}
