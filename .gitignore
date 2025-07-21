@@ -1,1 +1,3 @@
 # Excluded files
+vendor/plenary.nvim
+doc/tags
