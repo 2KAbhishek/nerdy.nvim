@@ -62,7 +62,7 @@ Introducing nerdy.nvim, a super handy plugin that lets you search, preview and i
         max_recents = 30, -- Configure recent icons limit
         add_default_keybindings = true, -- Add default keybindings
         use_new_command = true, -- Enable new command system
-        selection_to_clipboard = false, -- Whether to copy selected icon to clipboard
+        copy_to_clipboard = false, -- Whether to copy selected icon to clipboard
     }
 },
 ```
