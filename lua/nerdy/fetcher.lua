@@ -16,7 +16,7 @@ fetcher.list = function()
     }, function(item, _)
         if item ~= nil then
             recents.add_to_recent(item)
-            if config.selection_to_clipboard then
+            if config.copy_to_clipboard then
                 vim.fn.setreg('+', item.char)
                 vim.notify('Copied to clipboard: ' .. item.char, vim.log.levels.INFO)
                 return
@@ -49,7 +49,7 @@ fetcher.list_recents = function()
     }, function(item, _)
         if item ~= nil then
             recents.add_to_recent(item)
-            if config.selection_to_clipboard then
+            if config.copy_to_clipboard then
                 vim.fn.setreg('+', item.char)
                 vim.notify('Copied to clipboard: ' .. item.char, vim.log.levels.INFO)
                 return
