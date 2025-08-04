@@ -1,6 +1,5 @@
 local fetcher = {}
 local recents = require('nerdy.recents')
-local config = require('nerdy.config').config
 
 fetcher.list = function()
     local icon_list = require('nerdy.icons')
@@ -15,8 +14,9 @@ fetcher.list = function()
         end,
     }, function(item, _)
         if item ~= nil then
+            local copy_to_clipboard = require('nerdy.config').config.copy_to_clipboard
             recents.add_to_recent(item)
-            if config.copy_to_clipboard then
+            if copy_to_clipboard then
                 vim.fn.setreg('+', item.char)
                 return
             end
@@ -47,8 +47,9 @@ fetcher.list_recents = function()
         end,
     }, function(item, _)
         if item ~= nil then
+            local copy_to_clipboard = require('nerdy.config').config.copy_to_clipboard
             recents.add_to_recent(item)
-            if config.copy_to_clipboard then
+            if copy_to_clipboard then
                 vim.fn.setreg('+', item.char)
                 return
             end
