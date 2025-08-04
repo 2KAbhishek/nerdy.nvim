@@ -1,5 +1,6 @@
 local fetcher = {}
 local recents = require('nerdy.recents')
+local config_module = require('nerdy.config')
 
 local function insert_icon_from_list(icon_list, list_titie)
     local initial_mode = vim.api.nvim_get_mode().mode
@@ -14,6 +15,10 @@ local function insert_icon_from_list(icon_list, list_titie)
     }, function(item, _)
         if item ~= nil then
             recents.add_to_recent(item)
+            if config_module.config.copy_to_clipboard then
+                vim.fn.setreg('+', item.char)
+                return
+            end
             if initial_mode == 'i' then
                 vim.cmd('startinsert')
             end
