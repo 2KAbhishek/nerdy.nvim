@@ -116,6 +116,34 @@ describe('nerdy', function()
             assert.are.equal(1, #recent_after)
             assert.are.equal('cod-account', recent_after[1].name)
         end)
+
+        it('copies selected icon to clipboard when `copy_to_clipboard` is true', function()
+            local config = require('nerdy.config')
+            local original_copy_to_clipboard = config.config.copy_to_clipboard
+            config.setup({ copy_to_clipboard = true })
+
+            local original_ui_select = vim.ui.select
+            local selection_callback = nil
+
+            vim.ui.select = function(items, opts, callback)
+                selection_callback = callback
+            end
+
+            fetcher.list()
+            vim.ui.select = original_ui_select
+
+            assert.is_function(selection_callback)
+
+            local test_icon = { name = 'cod-account', code = 'eb99', char = '' }
+            selection_callback(test_icon, 1)
+
+            -- Check if clipboard was set
+            local clipboard_content = vim.fn.getreg('+')
+            assert.are.equal(test_icon.char, clipboard_content)
+
+            -- Restore original setting
+            config.setup({ copy_to_clipboard = original_copy_to_clipboard })
+        end)
     end)
 
     describe('list_recents function', function()
