@@ -18,7 +18,6 @@ fetcher.list = function()
             recents.add_to_recent(item)
             if config.copy_to_clipboard then
                 vim.fn.setreg('+', item.char)
-                vim.notify('Copied to clipboard: ' .. item.char, vim.log.levels.INFO)
                 return
             end
             if initial_mode == 'i' then
@@ -51,7 +50,6 @@ fetcher.list_recents = function()
             recents.add_to_recent(item)
             if config.copy_to_clipboard then
                 vim.fn.setreg('+', item.char)
-                vim.notify('Copied to clipboard: ' .. item.char, vim.log.levels.INFO)
                 return
             end
             if initial_mode == 'i' then
