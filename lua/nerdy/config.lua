@@ -3,12 +3,10 @@ local M = {}
 ---@class nerdy.config
 ---@field max_recents integer : Max number of recent icons to keep
 ---@field add_default_keybindings boolean : Whether to add default keybindings
----@field use_new_command boolean : Whether to use new Nerdy command
----@field copy_to_clipboard boolean : Whether to copy selected icon to clipboard
+---@field copy_to_clipboard boolean : -- Copy glyph to clipboard instead of inserting
 M.config = {
     max_recents = 30,
     add_default_keybindings = true,
-    use_new_command = false,
     copy_to_clipboard = false,
 }
 
