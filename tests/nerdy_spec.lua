@@ -109,7 +109,7 @@ describe('nerdy', function()
             local recent_before = recent_utils.load_recent_icons()
             assert.are.equal(0, #recent_before)
 
-            local test_icon = { name = 'cod-account', code = 'eb99', char = '' }
+            local test_icon = { name = 'cod-account', code = 'eb99', char = fetcher.get('cod-account') }
             selection_callback(test_icon, 1)
 
             local recent_after = recent_utils.load_recent_icons()
@@ -121,6 +121,23 @@ describe('nerdy', function()
             local config = require('nerdy.config')
             local original_copy_to_clipboard = config.config.copy_to_clipboard
             config.setup({ copy_to_clipboard = true })
+
+            local clipboard_content = ''
+            local original_setreg = vim.fn.setreg
+            local original_getreg = vim.fn.getreg
+
+            vim.fn.setreg = function(register, value)
+                if register == '+' then
+                    clipboard_content = value
+                end
+            end
+
+            vim.fn.getreg = function(register)
+                if register == '+' then
+                    return clipboard_content
+                end
+                return original_getreg(register)
+            end
 
             local original_ui_select = vim.ui.select
             local selection_callback = nil
@@ -137,11 +154,10 @@ describe('nerdy', function()
             local test_icon = { name = 'cod-account', code = 'eb99', char = '' }
             selection_callback(test_icon, 1)
 
-            -- Check if clipboard was set
-            local clipboard_content = vim.fn.getreg('+')
             assert.are.equal(test_icon.char, clipboard_content)
 
-            -- Restore original setting
+            vim.fn.setreg = original_setreg
+            vim.fn.getreg = original_getreg
             config.setup({ copy_to_clipboard = original_copy_to_clipboard })
         end)
     end)
