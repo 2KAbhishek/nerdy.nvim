@@ -1,4 +1,4 @@
-*nerdy.txt*           For Neovim >= 0.8.0          Last change: 2025 August 04
+*nerdy.txt*          For Neovim >= 0.8.0          Last change: 2025 October 16
 
 ==============================================================================
 Table of Contents                                    *nerdy-table-of-contents*
@@ -29,7 +29,7 @@ SETUP                                                            *nerdy-setup*
 REQUIREMENTS ~
 
 - You have installed the latest version of `neovim`
-- snacks.nvim picker <https://github.com/folke/snacks.nvim/blob/main/docs/picker.md> — for prettier select UI
+- snacks.nvim picker <https://github.com/folke/snacks.nvim/blob/main/docs/picker.md> — for prettier select UI and multi select (optional, recommended)
 
 
 INSTALLATION ~
@@ -62,6 +62,17 @@ COMMANDS
 - `:Nerdy list` - Browse all nerd font icons (explicit)
 - `:Nerdy recents` - Browse recently used icons
 - `:Nerdy get <icon_name>` - Insert specific icon by name
+
+
+MULTI SELECT
+
+**Multi-select Support**: When using with snacks.nvim picker
+<https://github.com/folke/snacks.nvim/blob/main/docs/picker.md>, you can select
+multiple glyphs at once:
+
+- Use `<Tab>` to select/deselect individual glyphs
+- Use `<Ctrl-a>` to select all glyphs on a filtered list
+- Use `<Enter>` to confirm your selection
 
 
 KEYBINDINGS
