@@ -10,7 +10,7 @@ local function multi_select(icon_list, list_title, snacks)
     for _, icon in ipairs(icon_list) do
         items[#items + 1] = {
             text = string.format('%s (%s) : %s', icon.name, icon.code, icon.char),
-            icon = icon
+            icon = icon,
         }
     end
 
@@ -18,7 +18,7 @@ local function multi_select(icon_list, list_title, snacks)
         items = items,
         format = 'text',
         layout = {
-            preset = "select"
+            preset = 'select',
         },
         title = list_title,
         confirm = function(picker, item)
@@ -41,7 +41,7 @@ local function multi_select(icon_list, list_title, snacks)
                 vim.api.nvim_win_set_cursor(0, cursor_position)
                 vim.api.nvim_put({ table.concat(chars, ' ') }, 'c', false, true)
             end
-        end
+        end,
     })
 end
 
