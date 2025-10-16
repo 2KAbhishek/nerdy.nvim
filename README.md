@@ -46,7 +46,7 @@ Introducing nerdy.nvim, a super handy plugin that lets you search, preview and i
 ### ⚡ Requirements
 
 - You have installed the latest version of `neovim`
-- [snacks.nvim picker](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md) — for prettier select UI
+- [snacks.nvim picker](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md) — for prettier select UI and multi select (optional, recommended)
 
 ### 🚀 Installation
 
@@ -76,6 +76,14 @@ Introducing nerdy.nvim, a super handy plugin that lets you search, preview and i
 - `:Nerdy list` - Browse all nerd font icons (explicit)
 - `:Nerdy recents` - Browse recently used icons
 - `:Nerdy get <icon_name>` - Insert specific icon by name
+
+#### ✅ Multi Select
+
+**Multi-select Support**: When using with [snacks.nvim picker](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md), you can select multiple glyphs at once:
+
+- Use `<Tab>` to select/deselect individual glyphs
+- Use `<Ctrl-a>` to select all glyphs on a filtered list
+- Use `<Enter>` to confirm your selection
 
 #### ⌨️ Keybindings
 
