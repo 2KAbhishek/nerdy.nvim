@@ -36,12 +36,12 @@ return function(opts)
                     local icon = selected_entry.char
                     recent_utils.add_to_recent(selected_entry)
                     actions.close(prompt_bufnr)
-                    
+
                     if config_module.config.output_location then
                         vim.fn.setreg(config_module.config.output_location, icon)
                         return
                     end
-                    
+
                     vim.api.nvim_put({ icon }, 'c', true, true)
                 end)
                 return true
