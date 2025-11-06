@@ -5,6 +5,7 @@ local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')
 
 local recent_utils = require('nerdy.recents')
+local config_module = require('nerdy.config')
 
 return function(opts)
     local recent_icons = recent_utils.load_recent_icons()
@@ -35,6 +36,12 @@ return function(opts)
                     local icon = selected_entry.char
                     recent_utils.add_to_recent(selected_entry)
                     actions.close(prompt_bufnr)
+                    
+                    if config_module.config.output_location then
+                        vim.fn.setreg(config_module.config.output_location, icon)
+                        return
+                    end
+                    
                     vim.api.nvim_put({ icon }, 'c', true, true)
                 end)
                 return true
