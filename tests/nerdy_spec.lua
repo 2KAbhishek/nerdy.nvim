@@ -117,24 +117,24 @@ describe('nerdy', function()
             assert.are.equal('cod-account', recent_after[1].name)
         end)
 
-        it('copies selected icon to clipboard when `copy_to_clipboard` is true', function()
+        it('copies selected icon to specified register when `output_location` is set', function()
             local config = require('nerdy.config')
-            local original_copy_to_clipboard = config.config.copy_to_clipboard
-            config.setup({ copy_to_clipboard = true })
+            local original_output_location = config.config.output_location
+            config.setup({ output_location = '+' })
 
-            local clipboard_content = ''
+            local register_content = ''
             local original_setreg = vim.fn.setreg
             local original_getreg = vim.fn.getreg
 
             vim.fn.setreg = function(register, value)
                 if register == '+' then
-                    clipboard_content = value
+                    register_content = value
                 end
             end
 
             vim.fn.getreg = function(register)
                 if register == '+' then
-                    return clipboard_content
+                    return register_content
                 end
                 return original_getreg(register)
             end
@@ -154,11 +154,11 @@ describe('nerdy', function()
             local test_icon = { name = 'cod-account', code = 'eb99', char = '' }
             selection_callback(test_icon, 1)
 
-            assert.are.equal(test_icon.char, clipboard_content)
+            assert.are.equal(test_icon.char, register_content)
 
             vim.fn.setreg = original_setreg
             vim.fn.getreg = original_getreg
-            config.setup({ copy_to_clipboard = original_copy_to_clipboard })
+            config.setup({ output_location = original_output_location })
         end)
     end)
 
@@ -309,6 +309,44 @@ describe('nerdy', function()
 
             -- Test that configuration is properly merged
             assert.is_function(nerdy.setup)
+        end)
+
+        it('handles deprecated copy_to_clipboard option', function()
+            local original_notify = vim.notify
+            local notification_message = nil
+            local notification_level = nil
+
+            vim.notify = function(message, level)
+                notification_message = message
+                notification_level = level
+            end
+
+            nerdy.setup({ copy_to_clipboard = true })
+
+            vim.notify = original_notify
+
+            local config = require('nerdy.config')
+            assert.are.equal('+', config.config.output_location)
+            assert.is_not_nil(notification_message)
+            assert(notification_message:match('copy_to_clipboard is deprecated'))
+            assert.are.equal(vim.log.levels.WARN, notification_level)
+        end)
+
+        it('sets output_location to nil when copy_to_clipboard is false', function()
+            -- Reset config first
+            local config = require('nerdy.config')
+            config.config.output_location = nil
+
+            nerdy.setup({ copy_to_clipboard = false })
+
+            assert.are.equal(nil, config.config.output_location)
+        end)
+
+        it('supports custom register in output_location', function()
+            nerdy.setup({ output_location = 'a' })
+
+            local config = require('nerdy.config')
+            assert.are.equal('a', config.config.output_location)
         end)
     end)
 end)

@@ -45,7 +45,7 @@ INSTALLATION ~
         opts = {
             max_recents = 30, -- Configure recent icons limit
             add_default_keybindings = true, -- Add default keybindings
-            copy_to_clipboard = false, -- Copy glyph to clipboard instead of inserting
+            output_location = nil, -- Register to output icon to (nil for insert in place)
         }
     },
 <
@@ -118,13 +118,13 @@ function:
 
 >lua
     local nerdy = require('nerdy')
-    
+
     -- Get a specific icon by name
     local lua = nerdy.get('seti-lua')              -- Returns ''
-    
+
     -- Handle cases where icon doesn't exist
     local unknown_icon = nerdy.get('non-existent') -- Returns '' and shows warning
-    
+
     -- Use in your own functions
     local function get_language_icon(language)
         local icon_name = 'md-language_' .. language

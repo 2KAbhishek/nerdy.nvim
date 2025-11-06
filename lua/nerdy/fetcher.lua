@@ -31,8 +31,8 @@ local function multi_select(icon_list, list_title, snacks)
                     recents.add_to_recent(selected_item.icon)
                     table.insert(chars, selected_item.icon.char)
                 end
-                if config_module.config.copy_to_clipboard then
-                    vim.fn.setreg('+', table.concat(chars, ''))
+                if config_module.config.output_location then
+                    vim.fn.setreg(config_module.config.output_location, table.concat(chars, ''))
                     return
                 end
                 if initial_mode == 'i' then
@@ -58,8 +58,8 @@ local function single_select(icon_list, list_title)
     }, function(item, _)
         if item ~= nil then
             recents.add_to_recent(item)
-            if config_module.config.copy_to_clipboard then
-                vim.fn.setreg('+', item.char)
+            if config_module.config.output_location then
+                vim.fn.setreg(config_module.config.output_location, item.char)
                 return
             end
             if initial_mode == 'i' then
