@@ -34,7 +34,6 @@ M.add_to_recent = function(icon)
     local config = require('nerdy.config').config
     local max_recents = config.max_recents
 
-    -- Remove if already exists
     for i, recent_icon in ipairs(recent_icons) do
         if recent_icon.name == icon.name then
             table.remove(recent_icons, i)
@@ -42,14 +41,10 @@ M.add_to_recent = function(icon)
         end
     end
 
-    -- Add to front
     table.insert(recent_icons, 1, icon)
-
-    -- Trim to max size
     while #recent_icons > max_recents do
         table.remove(recent_icons, #recent_icons)
     end
-
     M.save_recent_icons(recent_icons)
 end
 

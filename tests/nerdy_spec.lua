@@ -56,12 +56,10 @@ describe('nerdy', function()
             vim.ui.select = function(items, opts, callback)
                 called_with_items = items
                 called_with_opts = opts
-                -- Don't call callback to avoid UI interaction
             end
 
             fetcher.list()
 
-            -- Restore original function
             vim.ui.select = original_ui_select
 
             assert.is_not_nil(called_with_items)
@@ -104,7 +102,6 @@ describe('nerdy', function()
 
             assert.is_function(selection_callback)
 
-            -- Test that selecting an icon adds it to recent
             local recent_utils = require('nerdy.recents')
             local recent_before = recent_utils.load_recent_icons()
             assert.are.equal(0, #recent_before)
@@ -118,9 +115,9 @@ describe('nerdy', function()
         end)
 
         it('copies selected icon to clipboard when `copy_to_clipboard` is true', function()
-            local config = require('nerdy.config')
-            local original_copy_to_clipboard = config.config.copy_to_clipboard
-            config.setup({ copy_to_clipboard = true })
+            local config_module = require('nerdy.config')
+            local original_copy_to_clipboard = config_module.config.copy_to_clipboard
+            config_module.setup({ copy_to_clipboard = true })
 
             local clipboard_content = ''
             local original_setreg = vim.fn.setreg
@@ -158,7 +155,7 @@ describe('nerdy', function()
 
             vim.fn.setreg = original_setreg
             vim.fn.getreg = original_getreg
-            config.setup({ copy_to_clipboard = original_copy_to_clipboard })
+            config_module.setup({ copy_to_clipboard = original_copy_to_clipboard })
         end)
     end)
 
@@ -186,7 +183,6 @@ describe('nerdy', function()
         end)
 
         it('calls vim.ui.select when recent icons exist', function()
-            -- Add a recent icon first
             local recent_utils = require('nerdy.recents')
             local icon_list = require('nerdy.icons')
             recent_utils.add_to_recent(icon_list[1])
@@ -211,7 +207,6 @@ describe('nerdy', function()
         end)
 
         it('updates recent list when selection is made', function()
-            -- Add two recent icons
             local recent_utils = require('nerdy.recents')
             local icon_list = require('nerdy.icons')
             recent_utils.add_to_recent(icon_list[1])
@@ -227,7 +222,6 @@ describe('nerdy', function()
             fetcher.list_recents()
             vim.ui.select = original_ui_select
 
-            -- Select the second icon (should move it to front)
             local recent_before = recent_utils.load_recent_icons()
             assert.are.equal(2, #recent_before)
 
@@ -254,7 +248,6 @@ describe('nerdy', function()
         end)
 
         it('clears recent icons', function()
-            -- Manually add icons to test clearing
             local recent_utils = require('nerdy.recents')
             local icon_list = require('nerdy.icons')
             recent_utils.add_to_recent(icon_list[1])
@@ -270,7 +263,6 @@ describe('nerdy', function()
         end)
 
         it('persists recent icons across sessions', function()
-            -- Manually add icon to test persistence
             local recent_utils = require('nerdy.recents')
             local icon_list = require('nerdy.icons')
             recent_utils.add_to_recent(icon_list[1])
@@ -293,7 +285,6 @@ describe('nerdy', function()
         it('configures max_recents setting', function()
             nerdy.setup({ max_recents = 5 })
 
-            -- Manually add icons to test max_recents limit
             local recent_utils = require('nerdy.recents')
             local icon_list = require('nerdy.icons')
             for i = 1, 7 do
@@ -307,7 +298,6 @@ describe('nerdy', function()
         it('merges configuration options', function()
             nerdy.setup({ max_recents = 15 })
 
-            -- Test that configuration is properly merged
             assert.is_function(nerdy.setup)
         end)
     end)
