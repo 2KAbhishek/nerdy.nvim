@@ -1,6 +1,7 @@
 local fetcher = {}
 local recents = require('nerdy.recents')
 local config_module = require('nerdy.config')
+local copy_register = config_module.config.copy_register or '+'
 
 local function multi_select(icon_list, list_title, snacks)
     local initial_mode = vim.api.nvim_get_mode().mode
@@ -32,7 +33,7 @@ local function multi_select(icon_list, list_title, snacks)
                     table.insert(chars, selected_item.icon.char)
                 end
                 if config_module.config.copy_to_clipboard then
-                    vim.fn.setreg('+', table.concat(chars, ''))
+                    vim.fn.setreg(copy_register, table.concat(chars, ''))
                     return
                 end
                 if initial_mode == 'i' then
@@ -59,7 +60,7 @@ local function single_select(icon_list, list_title)
         if item ~= nil then
             recents.add_to_recent(item)
             if config_module.config.copy_to_clipboard then
-                vim.fn.setreg('+', item.char)
+                vim.fn.setreg(copy_register, item.char)
                 return
             end
             if initial_mode == 'i' then
