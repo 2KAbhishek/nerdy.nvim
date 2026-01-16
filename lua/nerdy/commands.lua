@@ -77,10 +77,6 @@ end
 ---Setup Nerdy commands
 function M.setup()
     add_nerdy_command()
-    if config.add_default_keybindings then
-        vim.api.nvim_set_keymap('n', '<leader>in', ':Nerdy list<CR>', { noremap = true, silent = true })
-        vim.api.nvim_set_keymap('n', '<leader>iN', ':Nerdy recents<CR>', { noremap = true, silent = true })
-    end
 end
 
 return M
