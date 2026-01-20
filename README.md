@@ -60,10 +60,13 @@ Introducing nerdy.nvim, a super handy plugin that lets you search, preview and i
     cmd = 'Nerdy',
     opts = {
         max_recents = 30, -- Configure recent icons limit
-        add_default_keybindings = true, -- Add default keybindings
         copy_to_clipboard = false, -- Copy glyph to clipboard instead of inserting
         copy_register = '+', -- Register to use for copying (if `copy_to_clipboard` is true)
-    }
+    },
+    keys = {
+        { '<leader>in', ':Nerdy list<CR>',    desc = "Browse nerd icons", noremap = true, silent = true },
+        { '<leader>iN', ':Nerdy recents<CR>', desc = "Browse recent nerd icons", noremap = true, silent = true },
+    },
 },
 ```
 
@@ -85,19 +88,6 @@ Introducing nerdy.nvim, a super handy plugin that lets you search, preview and i
 - Use `<Tab>` to select/deselect individual glyphs
 - Use `<Ctrl-a>` to select all glyphs on a filtered list
 - Use `<Enter>` to confirm your selection
-
-#### ⌨️ Keybindings
-
-By default, these are the configured keybindings.
-
-| Keybinding   | Command                           | Description               |
-| ------------ | --------------------------------- | ------------------------- |
-| `<leader>in` | `:Nerdy list<CR>` or `:Nerdy<CR>` | Browser nerd icons        |
-| `<leader>iN` | `:Nerdy recents<CR>`              | Browser recent nerd icons |
-
-I recommend customizing these keybindings based on your preferences.
-
-Use `:help nerdy` for more details.
 
 #### 🔭 Telescope Extension
 
