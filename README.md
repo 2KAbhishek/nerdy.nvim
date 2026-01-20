@@ -91,6 +91,19 @@ Use `:help nerdy` for more details.
 - Use `<Ctrl-a>` to select all glyphs on a filtered list
 - Use `<Enter>` to confirm your selection
 
+#### ⌨️ Keybindings
+
+By default, these are the configured keybindings.
+
+| Keybinding   | Command                           | Description               |
+| ------------ | --------------------------------- | ------------------------- |
+| `<leader>in` | `:Nerdy list<CR>` or `:Nerdy<CR>` | Browser nerd icons        |
+| `<leader>iN` | `:Nerdy recents<CR>`              | Browser recent nerd icons |
+
+I recommend customizing these keybindings based on your preferences using the `keys` config in lazy.
+
+Use `:help nerdy` for more details.
+
 #### 🔭 Telescope Extension
 
 Nerdy also comes with a Telescope extension, to use it add the following to your telescope configs.
