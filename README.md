@@ -64,8 +64,8 @@ Introducing nerdy.nvim, a super handy plugin that lets you search, preview and i
         copy_register = '+', -- Register to use for copying (if `copy_to_clipboard` is true)
     },
     keys = {
-        { '<leader>in', ':Nerdy list<CR>', desc = "Browse nerd icons", noremap = true, silent = true },
-        { '<leader>iN', ':Nerdy recents<CR>', desc = "Browse recent nerd icons", noremap = true, silent = true },
+        { '<leader>in', ':Nerdy list<CR>', desc = "Browse nerd icons" },
+        { '<leader>iN', ':Nerdy recents<CR>', desc = "Browse recent nerd icons" },
     },
 },
 ```
