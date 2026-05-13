@@ -1,4 +1,3 @@
-local config = require('nerdy.config').config
 local fetcher = require('nerdy.fetcher')
 
 local M = {}
