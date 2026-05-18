@@ -4,7 +4,7 @@ local M = {}
 ---@field max_recents integer : Max number of recent icons to keep
 ---@field copy_to_clipboard boolean : -- Copy glyph to clipboard instead of inserting
 M.config = {
-    max_recents = 30,
+    max_recents = 100,
     copy_to_clipboard = false,
     copy_register = '+',
 }
