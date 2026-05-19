@@ -167,8 +167,7 @@ I love nerd font glyphs, and I use them anywhere I can! but I was wasting a lot 
 
 ### 🔍 More Info
 
-- [nerdicons.nvim](https://github.com/nvimdev/nerdicons.nvim) — thanks to the original authors for the groundwork.
-- [co-author.nvim](https://github.com/2kabhishek/co-author.nvim) — Another one of my plugin that lets you add co authors.
+- [nerdy-vscode](https://github.com/2KAbhishek/nerdy-vscode) — Nerdy for VS Code 
 
 <hr>
 
