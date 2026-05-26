@@ -1,5 +1,5 @@
 *nerdy.txt*
-                               For Neovim >= 0.8.0    Last change: 2026 May 19
+                               For Neovim >= 0.8.0    Last change: 2026 May 26
 
 ==============================================================================
 Table of Contents                                    *nerdy-table-of-contents*
@@ -49,8 +49,8 @@ INSTALLATION ~
             copy_register = '+', -- Register to use for copying (if `copy_to_clipboard` is true)
         },
         keys = {
-            { '<leader>in', ':Nerdy list<CR>', desc = "Browse nerd icons" },
-            { '<leader>iN', ':Nerdy recents<CR>', desc = "Browse recent nerd icons" },
+            { '<leader>in', '<cmd>Nerdy list<CR>', desc = "Browse nerd icons" },
+            { '<leader>iN', '<cmd>Nerdy recents<CR>', desc = "Browse recent nerd icons" },
         },
     },
 <
