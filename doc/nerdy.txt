@@ -1,5 +1,5 @@
 *nerdy.txt*
-                               For Neovim >= 0.8.0    Last change: 2026 May 26
+                            For Neovim >= 0.8.0    Last change: 2026 August 04
 
 ==============================================================================
 Table of Contents                                    *nerdy-table-of-contents*
