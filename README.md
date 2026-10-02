@@ -46,7 +46,11 @@ Introducing nerdy.nvim, a super handy plugin that lets you search, preview and i
 ### ⚡ Requirements
 
 - You have installed the latest version of `neovim`
-- [snacks.nvim picker](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md) — for prettier select UI and multi select (optional, recommended)
+- A picker plugin for a prettier UI and multi-select support (optional):
+  - [snacks.nvim picker](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md) (recommended)
+  - [fzf-lua](https://github.com/ibhagwan/fzf-lua)
+  - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+  - Any `vim.ui.select` provider (e.g. [dressing.nvim](https://github.com/stevearc/dressing.nvim), [mini.pick](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-pick.md))
 
 ### 🚀 Installation
 
@@ -56,12 +60,15 @@ Introducing nerdy.nvim, a super handy plugin that lets you search, preview and i
     '2kabhishek/nerdy.nvim',
     dependencies = {
         'folke/snacks.nvim',
+        -- or 'ibhagwan/fzf-lua',
+        -- or 'nvim-telescope/telescope.nvim',
     },
     cmd = 'Nerdy',
     opts = {
         max_recents = 30, -- Configure recent icons limit
         copy_to_clipboard = false, -- Copy glyph to clipboard instead of inserting
         copy_register = '+', -- Register to use for copying (if `copy_to_clipboard` is true)
+        picker = 'auto', -- 'auto' (default) | 'snacks' | 'fzf-lua' | 'telescope' | 'select'
     },
     keys = {
         { '<leader>in', '<cmd>Nerdy list<CR>', desc = "Browse nerd icons" },
@@ -85,10 +92,10 @@ Use `:help nerdy` for more details.
 
 #### ✅ Multi Select
 
-**Multi-select Support**: When using with [snacks.nvim picker](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md), you can select multiple glyphs at once:
+**Multi-select Support**: When using with [snacks.nvim](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md) or [fzf-lua](https://github.com/ibhagwan/fzf-lua), you can select multiple glyphs at once:
 
-- Use `<Tab>` to select/deselect individual glyphs
-- Use `<Ctrl-a>` to select all glyphs on a filtered list
+- Use `<Tab>` / `<S-Tab>` to select/deselect individual glyphs
+- Use `<Ctrl-a>` (snacks) to select all glyphs on a filtered list
 - Use `<Enter>` to confirm your selection
 
 #### ⌨️ Keybindings
